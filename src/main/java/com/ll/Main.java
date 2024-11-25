@@ -3,39 +3,6 @@ package com.ll;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Wise {
-    private String wise;
-    private String author;
-    private int wisnum;
-
-    public Wise(String wise, String author, int wisnum) {
-        this.wise = wise;
-        this.author = author;
-        this.wisnum = wisnum;
-    }
-
-    public String toString() {
-        return wisnum+" / "+author+" / "+wise;
-    }
-
-    public int getWisnum() {
-        return wisnum;
-    }
-
-    public String getWise() {
-        return wise;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-    public void setWise(String wise){
-        this.wise = wise;
-    }
-    public void setAuthor(String author){
-        this.author = author;
-    }
-}
 public class Main {
     public static void main(String[] args) {
         int num = 0;
