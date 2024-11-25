@@ -5,17 +5,19 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        App app = new App();
+        app.run();
         int num = 0;
         System.out.println("== 명언 앱 ==");
         Scanner scanner = new Scanner(System.in);
         ArrayList<Wise> wises = new ArrayList<>();
         while(true) {
-            System.out.print("명령) ");
 
             String order = scanner.nextLine();
             if(order.equals("종료")) {
                 break;
             }
+
             switch(order){
                 case "등록":
                     num += 1;
