@@ -3,7 +3,7 @@ package com.ll.domain.Wisdom.entity;
 public class Wise {
     private String wise;
     private String author;
-    private final int wisnum;
+    private int wisnum;
 
     public Wise(String wise, String author, int wisnum) {
         this.wise = wise;
@@ -25,6 +25,10 @@ public class Wise {
 
     public String getAuthor() {
         return author;
+    }
+
+    public void setWisnum(int wisnum) {
+        this.wisnum = wisnum;
     }
 
     public void setWise(String wise) {

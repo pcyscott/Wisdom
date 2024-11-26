@@ -1,6 +1,7 @@
 package com.ll;
 
 import com.ll.domain.Wisdom.controller.WisdomController;
+import com.ll.domain.repository.WisdomRepository;
 import com.ll.domain.system.controller.SystemController;
 
 import java.util.Scanner;
@@ -10,11 +11,13 @@ public class App {
     private String order;
     private final WisdomController wisdomController;
     private final SystemController systemController;
+    private final WisdomRepository wisdomRepository;
 
     public App(){
         scanner = new Scanner(System.in);
         order = "null";
         wisdomController = new WisdomController(scanner);
+        wisdomRepository = new WisdomRepository();
         systemController = new SystemController();
     }
     void run(){

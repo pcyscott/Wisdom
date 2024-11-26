@@ -58,11 +58,9 @@ public class WisdomController {
         System.out.print("명언) ");
         String newWise = scanner.nextLine();
 
-
         System.out.println("작가(기존) : "+targetwise.getAuthor());
         System.out.print("작가) ");
         String newAuthor = scanner.nextLine();
-
 
         wisdomService.modify(targetwise,newWise,newAuthor);
 

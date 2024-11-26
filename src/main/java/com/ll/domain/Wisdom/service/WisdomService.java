@@ -1,39 +1,39 @@
 package com.ll.domain.Wisdom.service;
 
 import com.ll.domain.Wisdom.entity.Wise;
+import com.ll.domain.repository.WisdomRepository;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
 public class WisdomService {
-    private final ArrayList<Wise> wises;
-    private int index;
+    private final WisdomRepository wisdomRepository;
+
     public WisdomService() {
-        this.wises = new ArrayList<>();
-        this.index = 0;
+        this.wisdomRepository = new WisdomRepository();
     }
     public Wise add(String wisname, String author) {
-        int id = ++index;
-        Wise wise = new Wise(wisname, author, id);
-        wises.add(wise);
+
+        Wise wise = new Wise(wisname, author, 0);
+        wisdomRepository.add(wise);
         return wise;
     }
 
     public ArrayList<Wise> findAll() {
-        return wises;
+        return wisdomRepository.findAll();
     }
 
     public boolean removeById(int target) {
-        return wises.removeIf(wises -> wises.getWisnum()==target);
+        return wisdomRepository.removeById(target);
     }
 
     public Optional<Wise> findById(int target) {
-        return wises.stream().filter(wis -> wis.getWisnum()==target).findFirst();
+        return wisdomRepository.findById(target);
     }
 
-    public void modify(Wise targetwise, String newWise, String newAuthor) {
-        targetwise.setWise(newWise);
-        targetwise.setAuthor(newAuthor);
+    public void modify(Wise wise, String newWise, String newAuthor) {
+        wise.setWise(newWise);
+        wise.setAuthor(newAuthor);
 
     }
 }
