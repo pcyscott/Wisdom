@@ -31,8 +31,8 @@ public class App {
                    wisdomController.showing(wises);
                }
                else if(order.startsWith("삭제")){
-                   int target = Integer.parseInt(order.split("=")[1]);
-                   wisdomController.deleting(wises,target);
+
+                   wisdomController.deleting(wises,order);
                }
                else if(order.startsWith("수정")){
                    editing();;

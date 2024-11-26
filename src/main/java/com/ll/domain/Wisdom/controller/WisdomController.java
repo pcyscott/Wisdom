@@ -13,8 +13,8 @@ public class WisdomController {
         }
     }
 
-    public void deleting(ArrayList<Wise> wises, int target) {
-
+    public void deleting(ArrayList<Wise> wises, String order) {
+        int target = Integer.parseInt(order.split("=")[1]);
         boolean removed = wises.removeIf(item -> item.getWisnum() == target);
         if (removed) {
             System.out.println(target+"번의 명언이 삭제되었습니다.");
