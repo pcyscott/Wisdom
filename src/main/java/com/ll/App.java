@@ -1,6 +1,7 @@
 package com.ll;
 
 import com.ll.domain.Wisdom.controller.WisdomController;
+import com.ll.domain.system.controller.SystemController;
 
 import java.util.Scanner;
 
@@ -8,11 +9,13 @@ public class App {
     private Scanner scanner;
     private String order;
     private final WisdomController wisdomController;
+    private final SystemController systemController;
 
     public App(){
         scanner = new Scanner(System.in);
         order = "null";
-        wisdomController = new WisdomController();
+        wisdomController = new WisdomController(scanner);
+        systemController = new SystemController();
     }
     void run(){
         System.out.println("== 명언 앱 ==");
@@ -32,6 +35,7 @@ public class App {
                    wisdomController.editing(order);
                }
                else if(order.equals("종료")){
+                   systemController.progclosing();
                    break;
                }
         }

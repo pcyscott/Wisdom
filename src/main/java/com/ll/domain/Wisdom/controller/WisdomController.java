@@ -10,10 +10,10 @@ public class WisdomController {
     private final ArrayList<Wise> wises;
     private final Scanner scanner;
 
-    public WisdomController() {
+    public WisdomController(Scanner scanner) {
         this.wises = new ArrayList<>();
         this.index = 0;
-        this.scanner = new Scanner(System.in);
+        this.scanner = scanner;
     }
 
     private void makeSampleData(ArrayList<Wise> wises) {
