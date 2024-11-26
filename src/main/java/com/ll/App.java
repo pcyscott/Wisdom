@@ -31,7 +31,8 @@ public class App {
                    wisdomController.showing(wises);
                }
                else if(order.startsWith("삭제")){
-                   deleting();
+                   int target = Integer.parseInt(order.split("=")[1]);
+                   wisdomController.deleting(wises,target);
                }
                else if(order.startsWith("수정")){
                    editing();;
@@ -55,16 +56,7 @@ public class App {
     }
 
 
-    private void deleting() {
-        int target = Integer.parseInt(order.split("=")[1]);
-        boolean removed = wises.removeIf(item -> item.getWisnum() == target);
-        if (removed) {
-            System.out.println(target+"번의 명언이 삭제되었습니다.");
-        }
-        else{
-            System.out.println(target+"번의 명언은 존재하지 않습니다.");
-        }
-    }
+
     private void editing() {
         int taget = Integer.parseInt(order.split("=")[1]);
         Wise targetwise = null;

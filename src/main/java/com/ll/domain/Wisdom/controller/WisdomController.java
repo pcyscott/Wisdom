@@ -12,4 +12,15 @@ public class WisdomController {
             System.out.println(wises.get(i));
         }
     }
+
+    public void deleting(ArrayList<Wise> wises, int target) {
+
+        boolean removed = wises.removeIf(item -> item.getWisnum() == target);
+        if (removed) {
+            System.out.println(target+"번의 명언이 삭제되었습니다.");
+        }
+        else{
+            System.out.println(target+"번의 명언은 존재하지 않습니다.");
+        }
+    }
 }
