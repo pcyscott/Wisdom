@@ -19,6 +19,8 @@ public class App {
     }
     void run(){
         System.out.println("== 명언 앱 ==");
+        wisdomController.makeSampleData();
+
         while (true) {
                System.out.print("명령) ");
                order = scanner.nextLine();
