@@ -8,14 +8,13 @@ import java.util.Scanner;
 public class App {
     private Scanner scanner;
     private final ArrayList<Wise> wises;
-    private int index;
+
     private String order;
     private final WisdomController wisdomController;
 
     public App(){
         scanner = new Scanner(System.in);
         wises = new ArrayList<>();
-        index = 0;
         order = "null";
         wisdomController = new WisdomController();
     }
@@ -25,7 +24,7 @@ public class App {
                System.out.print("명령) ");
                order = scanner.nextLine();
                if (order.equals("등록")) {
-                   registing();
+                   wisdomController.registing(scanner,wises);
                }
                else if(order.equals("목록")){
                    wisdomController.showing(wises);
@@ -41,16 +40,5 @@ public class App {
                }
         }
         scanner.close();
-    }
-
-    private void registing() {
-        index++;
-        System.out.print("명언 : ");
-        String wisname = scanner.nextLine();
-        System.out.print("작가 : ");
-        String author = scanner.nextLine();
-        Wise wise = new Wise(wisname, author, index);
-        wises.add(wise);
-        System.out.println(index +"번 명언이 등록되었습니다.");
     }
 }

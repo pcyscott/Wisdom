@@ -6,6 +6,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WisdomController {
+    private int index;
+
+    private void makeSampleData(ArrayList<Wise> wises) {
+
+    }
+
     public void showing(ArrayList<Wise> wises) {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
@@ -52,5 +58,16 @@ public class WisdomController {
         else{
             System.out.println(taget+"번 명언은 존재하지 않습니다.");
         }
+    }
+
+    public void registing(Scanner scanner, ArrayList<Wise> wises) {
+        index++;
+        System.out.print("명언 : ");
+        String wisname = scanner.nextLine();
+        System.out.print("작가 : ");
+        String author = scanner.nextLine();
+        Wise wise = new Wise(wisname, author, index);
+        wises.add(wise);
+        System.out.println(index +"번 명언이 등록되었습니다.");
     }
 }
