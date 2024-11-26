@@ -3,6 +3,7 @@ package com.ll.domain.Wisdom.controller;
 import com.ll.domain.Wisdom.entity.Wise;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class WisdomController {
     public void showing(ArrayList<Wise> wises) {
@@ -21,6 +22,35 @@ public class WisdomController {
         }
         else{
             System.out.println(target+"번의 명언은 존재하지 않습니다.");
+        }
+    }
+
+    public void editing(String order, ArrayList<Wise> wises, Scanner scanner) {
+        int taget = Integer.parseInt(order.split("=")[1]);
+        Wise targetwise = null;
+
+        for(Wise item: wises){
+            if(item.getWisnum() == taget){
+                targetwise = item;
+                break;
+            }
+        }
+
+
+        if(targetwise != null){
+            System.out.println("명언(기존) : "+targetwise.getWise());
+            System.out.print("명언) ");
+            String newWise = scanner.nextLine();
+            targetwise.setWise(newWise);
+
+            System.out.println("작가(기존) : "+targetwise.getAuthor());
+            System.out.print("작가) ");
+            String newAuthor = scanner.nextLine();
+            targetwise.setAuthor(newAuthor);
+        }
+
+        else{
+            System.out.println(taget+"번 명언은 존재하지 않습니다.");
         }
     }
 }

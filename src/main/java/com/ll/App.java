@@ -31,11 +31,10 @@ public class App {
                    wisdomController.showing(wises);
                }
                else if(order.startsWith("삭제")){
-
                    wisdomController.deleting(wises,order);
                }
                else if(order.startsWith("수정")){
-                   editing();;
+                   wisdomController.editing(order,wises,scanner);
                }
                else if(order.equals("종료")){
                    break;
@@ -53,35 +52,5 @@ public class App {
         Wise wise = new Wise(wisname, author, index);
         wises.add(wise);
         System.out.println(index +"번 명언이 등록되었습니다.");
-    }
-
-
-
-    private void editing() {
-        int taget = Integer.parseInt(order.split("=")[1]);
-        Wise targetwise = null;
-
-        for(Wise item: wises){
-            if(item.getWisnum() == taget){
-                targetwise = item;
-                break;
-            }
-        }
-
-        if(targetwise != null){
-            System.out.println("명언(기존) : "+targetwise.getWise());
-            System.out.print("명언) ");
-            String newWise = scanner.nextLine();
-            targetwise.setWise(newWise);
-
-            System.out.println("작가(기존) : "+targetwise.getAuthor());
-            System.out.print("작가) ");
-            String newAuthor = scanner.nextLine();
-            targetwise.setAuthor(newAuthor);
-        }
-
-        else{
-            System.out.println(taget+"번 명언은 존재하지 않습니다.");
-        }
     }
 }
