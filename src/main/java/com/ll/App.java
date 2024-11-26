@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class App {
     private Scanner scanner;
-
-
     private String order;
     private final WisdomController wisdomController;
 
@@ -22,7 +20,7 @@ public class App {
                System.out.print("명령) ");
                order = scanner.nextLine();
                if (order.equals("등록")) {
-                   wisdomController.registing(scanner);
+                   wisdomController.registing();
                }
                else if(order.equals("목록")){
                    wisdomController.showing();
@@ -31,7 +29,7 @@ public class App {
                    wisdomController.deleting(order);
                }
                else if(order.startsWith("수정")){
-                   wisdomController.editing(order,scanner);
+                   wisdomController.editing(order);
                }
                else if(order.equals("종료")){
                    break;

@@ -8,10 +8,12 @@ import java.util.Scanner;
 public class WisdomController {
     private int index;
     private final ArrayList<Wise> wises;
+    private final Scanner scanner;
 
     public WisdomController() {
         this.wises = new ArrayList<>();
         this.index = 0;
+        this.scanner = new Scanner(System.in);
     }
 
     private void makeSampleData(ArrayList<Wise> wises) {
@@ -37,7 +39,7 @@ public class WisdomController {
         }
     }
 
-    public void editing(String order, Scanner scanner) {
+    public void editing(String order) {
         int taget = Integer.parseInt(order.split("=")[1]);
         Wise targetwise = null;
 
@@ -66,7 +68,7 @@ public class WisdomController {
         }
     }
 
-    public void registing(Scanner scanner) {
+    public void registing() {
         index++;
         System.out.print("명언 : ");
         String wisname = scanner.nextLine();
