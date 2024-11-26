@@ -1,18 +1,23 @@
 package com.ll;
+import com.ll.domain.Wisdom.controller.WisdomController;
+import com.ll.domain.Wisdom.entity.Wise;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     private Scanner scanner;
-    private ArrayList<Wise> wises;
+    private final ArrayList<Wise> wises;
     private int index;
     private String order;
+    private final WisdomController wisdomController;
 
     public App(){
         scanner = new Scanner(System.in);
         wises = new ArrayList<>();
         index = 0;
         order = "null";
+        wisdomController = new WisdomController();
     }
     void run(){
         System.out.println("== 명언 앱 ==");
@@ -23,7 +28,7 @@ public class App {
                    registing();
                }
                else if(order.equals("목록")){
-                   showing();
+                   wisdomController.showing(wises);
                }
                else if(order.startsWith("삭제")){
                    deleting();
@@ -49,13 +54,7 @@ public class App {
         System.out.println(index +"번 명언이 등록되었습니다.");
     }
 
-    private void showing() {
-        System.out.println("번호 / 작가 / 명언");
-        System.out.println("----------------------");
-        for(int i = wises.size()-1; i>-1; i--) {
-            System.out.println(wises.get(i));
-        }
-    }
+
     private void deleting() {
         int target = Integer.parseInt(order.split("=")[1]);
         boolean removed = wises.removeIf(item -> item.getWisnum() == target);

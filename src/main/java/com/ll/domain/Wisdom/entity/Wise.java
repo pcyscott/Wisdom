@@ -1,9 +1,9 @@
-package com.ll;
+package com.ll.domain.Wisdom.entity;
 
-class Wise {
+public class Wise {
     private String wise;
     private String author;
-    private int wisnum;
+    private final int wisnum;
 
     public Wise(String wise, String author, int wisnum) {
         this.wise = wise;
