@@ -7,12 +7,18 @@ import java.util.Scanner;
 
 public class WisdomController {
     private int index;
+    private final ArrayList<Wise> wises;
+
+    public WisdomController() {
+        this.wises = new ArrayList<>();
+        this.index = 0;
+    }
 
     private void makeSampleData(ArrayList<Wise> wises) {
 
     }
 
-    public void showing(ArrayList<Wise> wises) {
+    public void showing() {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
         for(int i = wises.size()-1; i>-1; i--) {
@@ -20,7 +26,7 @@ public class WisdomController {
         }
     }
 
-    public void deleting(ArrayList<Wise> wises, String order) {
+    public void deleting(String order) {
         int target = Integer.parseInt(order.split("=")[1]);
         boolean removed = wises.removeIf(item -> item.getWisnum() == target);
         if (removed) {
@@ -31,7 +37,7 @@ public class WisdomController {
         }
     }
 
-    public void editing(String order, ArrayList<Wise> wises, Scanner scanner) {
+    public void editing(String order, Scanner scanner) {
         int taget = Integer.parseInt(order.split("=")[1]);
         Wise targetwise = null;
 
@@ -60,7 +66,7 @@ public class WisdomController {
         }
     }
 
-    public void registing(Scanner scanner, ArrayList<Wise> wises) {
+    public void registing(Scanner scanner) {
         index++;
         System.out.print("명언 : ");
         String wisname = scanner.nextLine();
