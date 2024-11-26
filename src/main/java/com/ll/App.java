@@ -25,10 +25,10 @@ public class App {
                else if(order.equals("목록")){
                    showing();
                }
-               else if(order.equals("삭제")){
+               else if(order.startsWith("삭제")){
                    deleting();
                }
-               else if(order.equals("수정")){
+               else if(order.startsWith("수정")){
                    editing();;
                }
                else if(order.equals("종료")){
